@@ -1,5 +1,5 @@
 html {
-  background: url("http://theme.dima-lab.com/okab/images/landing-page-iphone/blurred-home-bg.jpg") no-repeat center center fixed;
+  background: url("background.jpg") repeat center center fixed; /*image obtained from "bgrepeat.com"*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -10,28 +10,35 @@ body {
     background-color: transparent;
 }
 #page-container {
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     text-align: center;
     color: White;
+    
 }
 
 #glasses {
   color: black;
 }
 #glasses:hover {
-  color: orange;
+  color: orange!important;
 }
 
 h1#app-name{
   font-size: 84px;
-  
+  color: darkblue;  
 }
 
 h2#page-header{
-  padding-top:20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-top:10px;
   padding-bottom:20px;
   font-size: 30px;
+}
+
+.btn-group {
+  padding-bottom: 20px;
 }
 
 #cityText {
@@ -40,8 +47,8 @@ h2#page-header{
 }
 
 .input-group {
-  padding-top: 20px;
-  width: 400px;
+  padding-top: 10px;
+  width: 80%;
   margin: 0 auto;
 }
 
@@ -50,11 +57,38 @@ h2#page-header{
   font-size: 18px;
 }
 
-#weather-box {
+.container-fluid {
   padding: 10px;
   width: 400px;
   margin: 0 auto;
-  margin-top : 20px;
-  margin-bottom : 20px;
-  /* border: 2px solid black; */
+  margin-top : 10px;
+  margin-bottom : 10px;
+  border: 1px solid black;
+  background-color: lightgrey;
+  color: darkblue;
+}
+#overall {
+  display: inline-block;
+}
+
+.weather-data {
+  font-size: 18px;
+}
+
+#footer {
+  width: 80%;
+  font-size: 14px;
+  margin: 0 auto;
+}        
+
+.breaks {
+  width: 80%;
+  padding-top: 10px;
+}
+.container-fluid {
+  display: "none";
+}
+
+.btn-primary:active {
+  background-color: darkblue;
 }

@@ -1,46 +1,113 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Weatherify</title>
-        <!--Boostrap's CSS-->
-        <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
-        <!--Custom CSS-->
-        <link rel="stylesheet" type="text/css" href="./css/style.css">
-    </head>
 
-    <body>
-        <!--Main body of webpage-->
-        <div class="container" id="page-container">
-            <h1 id="app-name">
-                <span class="glyphicon glyphicon-sunglasses" id="glasses"></span> Weatherify
-            </h1>
-            <h2 id="page-header">
-                Weather based clothing analyser
-            </h2>
-            <div id="initial-container">
-                <label for="city" id="cityText">Enter your city:</label>
-                <div class="input-group">
-                    <span class="input-group-addon" id="basic-addon1">City</span>
-                    <input type="text" class="form-control" placeholder="Auckland" aria-describedby="basic-addon1" id="InputCity" >
-                    <span class="input-group-btn">
+<head>
+    <meta charset="UTF-8">
+    <title>Weatherify</title>
+    <!--Boostrap's CSS-->
+    <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!--Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+
+<body>
+    <!--Main body of webpage-->
+    <div class="container" id="page-container">
+        <h1 id="app-name">
+            <span class="glyphicon glyphicon-sunglasses" id="glasses"></span> Weatherify
+        </h1>
+        <h2 id="page-header">
+            Your go to Weather Analyser
+        </h2>
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary OptionBtns" id="CurrentCityBtn">Get Current City Data</button>
+            <button type="button" class="btn btn-primary OptionBtns" id="ForecastBtn">Get City Forecast</button>
+            <button type="button" class="btn btn-primary OptionBtns" id="CompareCitiesBtn">Compare Two Cities</button>
+        </div>
+        <div class='container-fluid' id="initial-container">
+            <label for="city" id="cityText">Enter a city:</label>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">City</span>
+                <input type="text" class="form-control" placeholder="Auckland" aria-describedby="basic-addon1" id="InputCity">
+                <span class="input-group-btn">
                         <button class="btn btn-primary" type="button" id="GoBtn">Go!</button>
                     </span>
-                </div>
-            </div>
-            <div id="main-container">
-                <div id="weather-box">
-                    <p id="data"></p>
-                </div>
             </div>
         </div>
-        <!--jQuery Script-->
-        <script src="./node_modules/jquery/dist/jquery.min.js"></script>
-        <!--Bootstrap Script-->
-        <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-        <!--Custom Script-->
-        <script src="./js/main.js"></script>
+        <div class="container-fluid" id="current-weather-container" style="display:none;">
+            <div id="weather-info-box">
+                <p class="weather-data" id="countryCode"></p>
+                <p class="weather-data" id="temperature"></p>
+                <p class="weather-data" id="humidity"></p>
+                <p class="weather-data" id="wind"></p>
+                <p class="weather-data" id="overall"></p><img id="icon"></img>
+            </div>
+            <span class="input-group-btn">
+                    <button class="btn btn-primary BackBtn" type="button">Back</button>
+                </span>
+        </div>
+        <div class="container-fluid" id="forecast-container" style="display:none;">
+            <div id="weather-info-box">
+                <table class="table table-hover" style="text-align: center;">
+                    <thead>
+                        <tr>
+                            <th>NZ Time</th>
+                            <th id="Time0"></th>
+                            <th id="Time1"></th>
+                            <th id="Time2"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Temperature</th>
+                            <td id="T0"></td>
+                            <td id="T1"></td>
+                            <td id="T2"></td>
+                        </tr>
+                        <tr>
+                            <th>Humidity</th>
+                            <td id="H0"></td>
+                            <td id="H1"></td>
+                            <td id="H2"></td>
+                        </tr>
+                        <tr>
+                            <th>Average Wind Speed</th>
+                            <td id="W0"></td>
+                            <td id="W1"></td>
+                            <td id="W2"></td>
+                        </tr>
+                        <tr>
+                            <th>Overall</th>
+                            <td id="G0"></td>
+                            <td id="G1"></td>
+                            <td id="G2"></td>
+                        </tr>
+                        <tr>
+                            <th>Icon</th>
+                            <td><img id ="I0"></img></td>
+                            <td><img id ="I1"></img></td>
+                            <td><img id ="I2"></img></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <span class="input-group-btn">
+                    <button class="btn btn-primary BackBtn" type="button">Back</button>
+                </span>
+        </div>
+        <hr class="breaks">
+        <div id="footer">
+            <p>Open Weather Api has been incorporated into this web app</P>
+            <p>&copy Adil Bhayani</P>
+        </div>
+    </div>
+    <!--jQuery Script-->
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <!--Bootstrap Script-->
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!--Custom Script-->
+    <script src="./js/main.js"></script>
 
-    </body>
+</body>
 
 </html>
