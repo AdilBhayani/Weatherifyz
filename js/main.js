@@ -41,27 +41,27 @@ $(".form-control").keyup(function (e) {
 for (var i = 0; i < BackBtnClass.length; i++) {
     BackBtnClass[i].addEventListener("click", function () {
         ClearAllMenus();
+        ButtonsClear();
         initialContainer.style.display = "block";
         pageheader.innerHTML = "Your go-to Weather Analyser";
         document.getElementById('glasses').style.color = 'black';
     });
 }
 CurrentCityBtn.addEventListener("click", function () {
-    ClearAllMenus();
-    ButtonsClear();
-    initialContainer.style.display = "block";
-    pageheader.innerHTML = "Your go-to Weather Analyser";
-    document.getElementById('glasses').style.color = 'black';
+    initalReseter();
     menuOption = 0;
 });
 ForecastBtn.addEventListener("click", function () {
+    initalReseter();
+    menuOption = 1;
+});
+function initalReseter() {
     ClearAllMenus();
     ButtonsClear();
     initialContainer.style.display = "block";
     pageheader.innerHTML = "Your go-to Weather Analyser";
     document.getElementById('glasses').style.color = 'black';
-    menuOption = 1;
-});
+}
 function ClearAllMenus() {
     currentWeather.style.display = "none";
     initialContainer.style.display = "none";
