@@ -42,7 +42,7 @@ for (var i = 0; i < BackBtnClass.length; i++) {
     BackBtnClass[i].addEventListener("click", function () {
         ClearAllMenus();
         initialContainer.style.display = "block";
-        pageheader.innerHTML = "Your go to Weather Analyser";
+        pageheader.innerHTML = "Your go-to Weather Analyser";
         document.getElementById('glasses').style.color = 'black';
     });
 }
@@ -50,7 +50,7 @@ CurrentCityBtn.addEventListener("click", function () {
     ClearAllMenus();
     ButtonsClear();
     initialContainer.style.display = "block";
-    pageheader.innerHTML = "Your go to Weather Analyser";
+    pageheader.innerHTML = "Your go-to Weather Analyser";
     document.getElementById('glasses').style.color = 'black';
     menuOption = 0;
 });
@@ -58,7 +58,7 @@ ForecastBtn.addEventListener("click", function () {
     ClearAllMenus();
     ButtonsClear();
     initialContainer.style.display = "block";
-    pageheader.innerHTML = "Your go to Weather Analyser";
+    pageheader.innerHTML = "Your go-to Weather Analyser";
     document.getElementById('glasses').style.color = 'black';
     menuOption = 1;
 });
