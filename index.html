@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Weatherify</title>
+        <!--Boostrap's CSS-->
+        <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <!--Custom CSS-->
+        <link rel="stylesheet" type="text/css" href="./css/style.css">
+    </head>
+
+    <body>
+        <!--Main body of webpage-->
+        <div class="container" id="page-container">
+            <h1 id="app-name">
+                <span class="glyphicon glyphicon-sunglasses" id="glasses"></span> Weatherify
+            </h1>
+            <h2 id="page-header">
+                Weather based clothing analyser
+            </h2>
+            <div id="initial-container">
+                <label for="city" id="cityText">Enter your city:</label>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">City</span>
+                    <input type="text" class="form-control" placeholder="Auckland" aria-describedby="basic-addon1" id="InputCity" >
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button" id="GoBtn">Go!</button>
+                    </span>
+                </div>
+            </div>
+            <div id="main-container">
+                <div id="weather-box">
+                    <p id="data"></p>
+                </div>
+            </div>
+        </div>
+        <!--jQuery Script-->
+        <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+        <!--Bootstrap Script-->
+        <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!--Custom Script-->
+        <script src="./js/main.js"></script>
+
+    </body>
+
+</html>
