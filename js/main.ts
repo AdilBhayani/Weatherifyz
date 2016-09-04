@@ -5,7 +5,6 @@ var BackBtnClass = document.getElementsByClassName('BackBtn');
 var OptionBtnClass = document.getElementsByClassName('OptionBtns');
 var CurrentCityBtn = document.getElementById('CurrentCityBtn');
 var ForecastBtn = document.getElementById('ForecastBtn');
-var CompareCitiesBtn = document.getElementById('CompareCitiesBtn');
 var city: string;
 var inputCity: any;
 var initialContainer = document.getElementById('initial-container');
@@ -88,7 +87,6 @@ function ButtonsClear() {
 }
 
 function Go(option) {
-    if (option < 2) {
         inputCity = document.getElementById('InputCity');
         if (inputCity.value.length != 0) {
             city = inputCity.value;
@@ -99,9 +97,6 @@ function Go(option) {
         initialContainer.style.display = "none";
         pageheader.innerHTML = "Please wait while we analyse " + city + "'s weather!";
         weatherCaller(option, infoAnalyser, UIUpdater);
-    } else {
-        alert('NO WAY');
-    }
 }
 
 function currentCityUpdater() {
@@ -128,9 +123,16 @@ function forecastCityUpdater() {
 
     var time = new Date();
     var currentHour = time.getHours();
-    for (var i = 0; i < 3; i++) {
-        currentHour = (3 + currentHour) % 24;
 
+    if (currentHour > 0) {
+        currentHour = Math.floor(currentHour/3.0) * 3;
+    } else {
+        currentHour = 3;
+    }
+    
+    for (var i = 0; i < 3; i++) {
+        currentHour = (currentHour + 3) % 24;
+        
         if (currentHour < 10) {
             document.getElementById("Time" + i).innerHTML = "0" + currentHour.toString() + ":00";
         } else {

@@ -4,7 +4,6 @@ var BackBtnClass = document.getElementsByClassName('BackBtn');
 var OptionBtnClass = document.getElementsByClassName('OptionBtns');
 var CurrentCityBtn = document.getElementById('CurrentCityBtn');
 var ForecastBtn = document.getElementById('ForecastBtn');
-var CompareCitiesBtn = document.getElementById('CompareCitiesBtn');
 var city;
 var inputCity;
 var initialContainer = document.getElementById('initial-container');
@@ -75,21 +74,16 @@ function ButtonsClear() {
     });
 }
 function Go(option) {
-    if (option < 2) {
-        inputCity = document.getElementById('InputCity');
-        if (inputCity.value.length != 0) {
-            city = inputCity.value;
-        }
-        else {
-            city = "Auckland";
-        }
-        initialContainer.style.display = "none";
-        pageheader.innerHTML = "Please wait while we analyse " + city + "'s weather!";
-        weatherCaller(option, infoAnalyser, UIUpdater);
+    inputCity = document.getElementById('InputCity');
+    if (inputCity.value.length != 0) {
+        city = inputCity.value;
     }
     else {
-        alert('NO WAY');
+        city = "Auckland";
     }
+    initialContainer.style.display = "none";
+    pageheader.innerHTML = "Please wait while we analyse " + city + "'s weather!";
+    weatherCaller(option, infoAnalyser, UIUpdater);
 }
 function currentCityUpdater() {
     countryOut.innerHTML = "Country: " + country;
@@ -111,8 +105,14 @@ function forecastCityUpdater() {
     document.getElementById('glasses').style.color = 'orange';
     var time = new Date();
     var currentHour = time.getHours();
+    if (currentHour > 0) {
+        currentHour = Math.floor(currentHour / 3.0) * 3;
+    }
+    else {
+        currentHour = 3;
+    }
     for (var i = 0; i < 3; i++) {
-        currentHour = (3 + currentHour) % 24;
+        currentHour = (currentHour + 3) % 24;
         if (currentHour < 10) {
             document.getElementById("Time" + i).innerHTML = "0" + currentHour.toString() + ":00";
         }
