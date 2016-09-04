@@ -75,6 +75,10 @@ h2#page-header{
   font-size: 18px;
 }
 
+#iconText {
+  vertical-align: middle;
+}
+
 #footer {
   width: 80%;
   font-size: 14px;
@@ -91,4 +95,8 @@ h2#page-header{
 
 .btn-primary:active {
   background-color: darkblue;
+}
+
+.topText {
+  text-align: center;
 }

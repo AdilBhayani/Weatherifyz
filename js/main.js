@@ -94,7 +94,7 @@ function currentCityUpdater() {
     uppercaseOverallWeather(overallWeather);
     var iconLink = "http://openweathermap.org/img/w/" + overallWeather[0].icon + ".png";
     generalIcon.src = iconLink;
-    generalIcon.style.cssText = "height: 30px; width: 30px; margin-left: 4px";
+    generalIcon.style.cssText = "height: 36px; width: 36px; margin-left: 4px;";
     currentWeather.style.display = "block";
     document.getElementById('weather-info-box').style.display = 'block';
     document.getElementById('glasses').style.color = 'orange';
