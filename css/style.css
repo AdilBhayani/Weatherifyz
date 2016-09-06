@@ -39,6 +39,7 @@ h2#page-header{
 
 .btn-group {
   padding-bottom: 20px;
+  padding-top: 20px;
 }
 
 #cityText {
@@ -49,6 +50,10 @@ h2#page-header{
 .input-group {
   padding-top: 10px;
   width: 80%;
+  margin: 0 auto;
+}
+
+.input-group-btn {
   margin: 0 auto;
 }
 
@@ -67,12 +72,13 @@ h2#page-header{
   background-color: lightgrey;
   color: darkblue;
 }
-#overall {
-  display: inline-block;
-}
 
 .weather-data {
   font-size: 18px;
+}
+
+.ui-widget-header {
+  border: 0px solid #ddd;
 }
 
 #iconText {
@@ -81,7 +87,7 @@ h2#page-header{
 
 #footer {
   width: 80%;
-  font-size: 14px;
+  font-size: 1em;
   margin: 0 auto;
 }        
 
@@ -100,16 +106,20 @@ h2#page-header{
 .topText {
   text-align: center;
 }
- .ui-progressbar.ui-widget-header {
-   border: 10px solid #ddd;
- }
 
 #LoadingBar {
-  width:500px;
+  width:31.25em;
   margin: 0 auto;
   
 }
 
 #LoadingBar > div {
   background: #5cb85c;
+}
+
+#weatherImage {
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+  height: 200px;
 }

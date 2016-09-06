@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=500, initial-scale=1">
     <title>Weatherifyz</title>
 
-
+    <!--jquery UI's CSS-->
     <link rel="stylesheet" href="jquery-ui-1.12.0.custom/jquery-ui.min.css">
-
     <!--Boostrap's CSS-->
     <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
     <!--Custom CSS-->
     <link rel="stylesheet" type="text/css" href="./css/style.css">
+
+    <!--Aplication insights script-->
     <script type="text/javascript">
   var appInsights=window.appInsights||function(config){
     function r(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",s=u.createElement(o),i,f;s.src=config.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js";u.getElementsByTagName(o)[0].parentNode.appendChild(s);try{t.cookie=u.cookie}catch(h){}for(t.queue=[],i=["Event","Exception","Metric","PageView","Trace","Dependency"];i.length;)r("track"+i.pop());return r("setAuthenticatedUserContext"),r("clearAuthenticatedUserContext"),config.disableExceptionTracking||(i="onerror",r("_"+i),f=e[i],e[i]=function(config,r,u,e,o){var s=f&&f(config,r,u,e,o);return s!==!0&&t["_"+i](config,r,u,e,o),s}),t
@@ -34,6 +35,7 @@
         <h2 id="page-header">
             Your go-to Weather Analyser
         </h2>
+        <img id="weatherImage" style="margin:0 auto"></img>
         <div class="btn-group">
             <button type="button" class="btn btn-primary OptionBtns" id="CurrentCityBtn">Get Current City Data</button>
             <button type="button" class="btn btn-primary OptionBtns" id="ForecastBtn">Get City Forecast</button>
@@ -42,7 +44,7 @@
             <label for="city" id="cityText">Enter a city:</label>
             <div class="input-group">
                 <span class="input-group-addon" id="basic-addon1">City</span>
-                <input type="text" class="form-control" placeholder="Auckland" aria-describedby="basic-addon1" id="InputCity">
+                <input type="text" / class="form-control" placeholder="Auckland" aria-describedby="basic-addon1" id="InputCity">
                 <span class="input-group-btn">
                         <button class="btn btn-primary" type="button" id="GoBtn">Go!</button>
                     </span>
@@ -54,7 +56,7 @@
                 <p class="weather-data" id="temperature"></p>
                 <p class="weather-data" id="humidity"></p>
                 <p class="weather-data" id="wind"></p>
-                <p class="weather-data" id="overall"></p><img id="icon"></img>
+                <p class="weather-data" id="overall"></p>
             </div>
             <span class="input-group-btn">
                     <button class="btn btn-primary BackBtn" type="button">Back</button>
@@ -121,7 +123,7 @@
     </div>
     <!--jQuery Script-->
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
-    <!--jquery UI pluggin script-->
+    <!--jquery UI pluggin scripts-->
     <script src="jquery-ui-1.12.0.custom/external/jquery/jquery.js"></script>
     <script src="jquery-ui-1.12.0.custom/jquery-ui.min.js"></script>
     <!--Bootstrap Script-->

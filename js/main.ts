@@ -32,6 +32,8 @@ var futureWindSpeed: Array<number> = [];
 var futureWindDirection: Array<String> = [];
 var futureOverall: Array<any> = [];
 
+var image = document.getElementById('weatherImage');
+image.src = "http://res.freestockphotos.biz/pictures/15/15147-illustration-of-the-sun-pv.png";
 
 $("#LoadingBar").progressbar({
 value: false
@@ -69,6 +71,7 @@ ForecastBtn.addEventListener("click", function () {
 function initialReseter() {
     ClearAllMenus();
     ButtonsClear();
+    image.src = "http://res.freestockphotos.biz/pictures/15/15147-illustration-of-the-sun-pv.png";
     initialContainer.style.display = "block";
     pageheader.innerHTML = "Your go-to Weather Analyser";
     document.getElementById('glasses').style.color = 'black';
@@ -109,14 +112,30 @@ function currentCityUpdater() {
 
     uppercaseOverallWeather(overallWeather);
 
-    var iconLink = "http://openweathermap.org/img/w/" + overallWeather[0].icon + ".png";
-    generalIcon.src = iconLink;
-    generalIcon.style.cssText = "height: 36px; width: 36px; margin-left: 4px;";
-
     currentWeather.style.display = "block";
     document.getElementById('weather-info-box').style.display = 'block';
     document.getElementById('glasses').style.color = 'orange';
 }
+
+function imageChooser(option) {
+    var icons : string;
+    if (option == 0) {
+        icons = overallWeather[0].icon;
+    } else {
+        icons = futureOverall[0][0].icon;
+    }
+    if (icons == '01d') {image.src = "http://res.freestockphotos.biz/pictures/15/15147-illustration-of-the-sun-pv.png";}
+    else if (icons == '01n') {image.src = "http://res.freestockphotos.biz/pictures/15/15149-illustration-of-the-full-moon-pv.png";}
+    else if (icons == '02d'){image.src = "http://res.freestockphotos.biz/pictures/15/15148-illustration-of-the-sun-with-clouds-pv.png";}
+    else if (icons == '02n'){image.src = "http://res.freestockphotos.biz/pictures/15/15150-illustration-of-the-full-moon-with-clouds-pv.png";}
+    else if (icons.slice(0,2) == "03" || icons.slice(0,2) == "04"){image.src = "http://res.freestockphotos.biz/pictures/15/15146-illustration-of-a-stormy-cloud-pv.png";}
+    else if (icons.slice(0,2) == "09" || icons.slice(0,2) == "10"){image.src = "http://res.freestockphotos.biz/pictures/15/15143-illustration-of-a-stormy-cloud-with-light-rain-pv.png";}
+    else if (icons.slice(0,2) == "11"){image.src = "http://res.freestockphotos.biz/pictures/15/15141-illustration-of-a-stormy-cloud-with-lightning-pv.png";}
+    else if (icons.slice(0,2) == "13"){image.src = "http://res.freestockphotos.biz/pictures/15/15142-illustration-of-a-stormy-cloud-with-snow-pv.png";}
+    else if (icons.slice(0,2) == "50"){image.src = "http://res.freestockphotos.biz/pictures/15/15145-illustration-of-a-stormy-cloud-with-a-warning-symbol-pv.png";}
+    else image.src = "http://res.freestockphotos.biz/pictures/15/15147-illustration-of-the-sun-pv.png";}
+}
+
 
 function forecastCityUpdater() {
     forecastContainer.style.display = "block";
@@ -158,6 +177,7 @@ function uppercaseOverallWeather(overallWeather) {
 function UIUpdater(option) {
     pageheader.innerHTML = "Loaded " + city + "'s weather!";
     document.getElementById("LoadingBar").style.display = "none";
+    imageChooser(option);
     if (option == 0) {
         currentCityUpdater();
     } else if (option == 1) {
