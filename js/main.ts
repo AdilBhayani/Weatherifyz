@@ -33,6 +33,10 @@ var futureWindDirection: Array<String> = [];
 var futureOverall: Array<any> = [];
 
 
+$("#LoadingBar").progressbar({
+value: false
+)};
+
 //Either pressing go button or enter will cause api call to be made and UI to update
 GoBtn.addEventListener("click", function () {
     Go(menuOption);
@@ -48,25 +52,21 @@ $(".form-control").keyup(function (e) {
 //Back button takes user back to initial UI
 for (var i = 0; i < BackBtnClass.length; i++) {
     BackBtnClass[i].addEventListener("click", function () {
-        ClearAllMenus();
-        ButtonsClear();
-        initialContainer.style.display = "block";
-        pageheader.innerHTML = "Your go-to Weather Analyser";
-        document.getElementById('glasses').style.color = 'black';
+        initialReseter();
     });
 }
 
 CurrentCityBtn.addEventListener("click", function () {
-    initalReseter();
+    initialReseter();
     menuOption = 0;
 });
 
 ForecastBtn.addEventListener("click", function () {
-    initalReseter();
+    initialReseter();
     menuOption = 1;
 });
 
-function initalReseter() {
+function initialReseter() {
     ClearAllMenus();
     ButtonsClear();
     initialContainer.style.display = "block";
@@ -96,6 +96,7 @@ function Go(option) {
         }
         initialContainer.style.display = "none";
         pageheader.innerHTML = "Please wait while we analyse " + city + "'s weather!";
+        document.getElementById("LoadingBar").style.display = "block";
         weatherCaller(option, infoAnalyser, UIUpdater);
 }
 
@@ -156,6 +157,7 @@ function uppercaseOverallWeather(overallWeather) {
 }
 function UIUpdater(option) {
     pageheader.innerHTML = "Loaded " + city + "'s weather!";
+    document.getElementById("LoadingBar").style.display = "none";
     if (option == 0) {
         currentCityUpdater();
     } else if (option == 1) {
@@ -282,12 +284,14 @@ function weatherCaller(option, callback, callback2): void {
                 var mainInfo = data;
                 callback(option, mainInfo, callback2);
             } else {
+                document.getElementById("LoadingBar").style.display = "none";
                 pageheader.innerHTML = "Can't find info about one or more cities";
                 document.getElementById('weather-info-box').style.display = 'none';
                 currentWeather.style.display = "block";
             }
         })
         .fail(function (error) {
+            document.getElementById("LoadingBar").style.display = "none";
             pageheader.innerHTML = "Sorry, something went wrong.Try again later";
             console.log(error.getAllResponseHeaders());
         });

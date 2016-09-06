@@ -100,3 +100,16 @@ h2#page-header{
 .topText {
   text-align: center;
 }
+ .ui-progressbar.ui-widget-header {
+   border: 10px solid #ddd;
+ }
+
+#LoadingBar {
+  width:500px;
+  margin: 0 auto;
+  
+}
+
+#LoadingBar > div {
+  background: #5cb85c;
+}

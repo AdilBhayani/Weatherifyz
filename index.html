@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=500, initial-scale=1">
     <title>Weatherifyz</title>
+
+
+    <link rel="stylesheet" href="jquery-ui-1.12.0.custom/jquery-ui.min.css">
+
     <!--Boostrap's CSS-->
     <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
     <!--Custom CSS-->
@@ -62,9 +66,9 @@
                     <thead>
                         <tr>
                             <th>NZ Time</th>
-                            <th class = "topText" id="Time0"></th>
-                            <th class = "topText" id="Time1"></th>
-                            <th class = "topText" id="Time2"></th>
+                            <th class="topText" id="Time0"></th>
+                            <th class="topText" id="Time1"></th>
+                            <th class="topText" id="Time2"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -93,7 +97,7 @@
                             <td id="G2"></td>
                         </tr>
                         <tr>
-                            <th id="iconText" >Icon</th>
+                            <th id="iconText">Icon</th>
                             <td><img id="I0"></img>
                             </td>
                             <td><img id="I1"></img>
@@ -106,8 +110,9 @@
             </div>
             <span class="input-group-btn">
                     <button class="btn btn-primary BackBtn" type="button">Back</button>
-                </span>
+            </span>
         </div>
+        <div class="ui-progressbar ui-progressbar-indeterminate" id="LoadingBar" style="display:none;"></div>
         <hr class="breaks">
         <div id="footer">
             <p>Open Weather Api has been incorporated into this web app</P>
@@ -116,6 +121,9 @@
     </div>
     <!--jQuery Script-->
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <!--jquery UI pluggin script-->
+    <script src="jquery-ui-1.12.0.custom/external/jquery/jquery.js"></script>
+    <script src="jquery-ui-1.12.0.custom/jquery-ui.min.js"></script>
     <!--Bootstrap Script-->
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <!--Custom Script-->
