@@ -16,10 +16,14 @@
 
      if ( $fl = fopen('sigfoxData.json','a')) {
        fwrite($fl,"\"data\": { \"id\" : \"". $_id . "\", "
-                             ."\"data\" :\"" . $_data . "\", "
-                             ."\"from\" :\"" . $_station . "\", "
-                             ."\"lat\" :\"" . $_lat . "\", "
-                             ."\"lng\" :\"" . $_lng . "\" }\n" );
+		                     ."\"time\" :\"" . $_time . "\", "
+							 ."\"signal\" :\"" . $_signal . "\", "
+							 ."\"station\" :\"" . $_station . "\", "
+							 ."\"lat\" :\"" . $_lat . "\", "
+                             ."\"lng\" :\"" . $_lng . "\", "
+							 ."\"rssi\" :\"" . $_rssi . "\", "
+							 ."\"data\" :\"" . $_data . "\", "
+							 ."\"avgSignal\" :\"" . $_avgSignal . "\" }\n" );
        fclose($fl);
      }
   ?>
