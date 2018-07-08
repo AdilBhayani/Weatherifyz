@@ -14,7 +14,7 @@
      $_data = $_GET["data"];
      $_avgSignal = $_GET["avgSignal"];
 
-     if ( $fl = fopen('sigfoxData' . $_id . '.json','a')) {
+     if ( $fl = fopen(('sigfoxData' .$_id. '.json'),'a')) {
        fwrite($fl,"\"data\": { \"id\" : \"". $_id . "\", "
 		                     ."\"time\" :\"" . $_time . "\", "
 							 ."\"signal\" :\"" . $_signal . "\", "
